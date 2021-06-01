@@ -43,7 +43,8 @@ pipeline {
         // TODO: Switch to Git image
         container("kustomize") {
           sh """
-            git clone $GITOPS_REPO
+            mkdir gitops
+            git clone $GITOPS_REPO gitops
           """
         }
       }
