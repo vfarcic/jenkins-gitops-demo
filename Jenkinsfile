@@ -49,10 +49,9 @@ pipeline {
             cat production/${PROJECT}.yaml | sed -e "s@${PROJECT}.*@${PROJECT}:${BRANCH_NAME}-${BUILD_NUMBER}@g" | tee production/${PROJECT}.yaml
             echo "---"
             cat production/${PROJECT}.yaml
-            git status
-            # git add .
-            # git commit -m "Updating ${PROJECT} to tag ${BRANCH_NAME}-${BUILD_NUMBER}"
-            # git push
+            git add .
+            git commit -m "Updating ${PROJECT} to tag ${BRANCH_NAME}-${BUILD_NUMBER}"
+            git push
           """
         }
       }
