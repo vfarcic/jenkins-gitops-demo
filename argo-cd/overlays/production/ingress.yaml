@@ -4,9 +4,7 @@ metadata:
   name: argocd-server
   annotations:
     ingress.kubernetes.io/ssl-redirect: "false"
-    nginx.ingress.kubernetes.io/ssl-redirect: "false"
     ingress.kubernetes.io/rewrite-target: /
-    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
   - http:
@@ -18,5 +16,5 @@ spec:
            name: argocd-server
            port:
              number: 80
-    host: argo-cd.18.198.86.174.nip.io
+    host: argo-cd.3.66.43.224.nip.io
 

@@ -17,7 +17,7 @@ spec:
           ingress:
             enabled: true
             apiVersion: networking.k8s.io/v1
-            hostName: jenkins.18.198.86.174.nip.io
+            hostName: jenkins.3.66.43.224.nip.io
           installPlugins:
           - kubernetes:1.29.4
           - workflow-aggregator:2.6
