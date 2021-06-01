@@ -8,8 +8,8 @@ metadata:
 spec:
   project: production
   source:
-    path: helm
-    repoURL: https://github.com/vfarcic/jenkins-gitops-demo.git
+    path: charts/jenkins
+    repoURL: https://github.com/jenkinsci/helm-charts.git
     targetRevision: HEAD
     helm:
       values: |
