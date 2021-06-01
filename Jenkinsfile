@@ -43,6 +43,8 @@ pipeline {
         // TODO: Switch to Git image
         container("kustomize") {
           sh """
+            pwd
+            ls -l /
             mkdir gitops
             git clone https://github.com/$GITOPS_REPO gitops
             cd gitops
