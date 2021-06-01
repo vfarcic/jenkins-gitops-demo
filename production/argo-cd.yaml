@@ -9,7 +9,7 @@ spec:
   project: production
   source:
     path: argo-cd/overlays/production
-    repoURL: https://github.com/vfarcic/combine-infra-services-apps
+    repoURL: https://github.com/vfarcic/jenkins-gitops-demo
     targetRevision: HEAD
   destination:
     server: https://kubernetes.default.svc
