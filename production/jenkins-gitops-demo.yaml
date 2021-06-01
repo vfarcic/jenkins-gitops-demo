@@ -11,6 +11,9 @@ spec:
     path: kustomize/overlays/production
     repoURL: https://github.com/vfarcic/jenkins-gitops-demo
     targetRevision: HEAD
+    kustomize:
+      images:
+      - vfarcic/jenkins-gitops-demo:1.2.3
   destination:
     server: https://kubernetes.default.svc
   syncPolicy:
