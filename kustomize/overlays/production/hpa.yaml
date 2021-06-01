@@ -1,0 +1,16 @@
+---
+
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: jenkins-gitops-demo
+  labels:
+    app: jenkins-gitops-demo
+spec:
+  minReplicas: 2
+  maxReplicas: 6
+  scaleTargetRef:
+    apiVersion: argoproj.io/v1alpha1
+    kind: Rollout
+    name: jenkins-gitops-demo
+  targetCPUUtilizationPercentage: 80

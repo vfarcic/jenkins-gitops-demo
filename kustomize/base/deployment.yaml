@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jenkins-gitops-demo
+  labels:
+    app: jenkins-gitops-demo
+spec:
+  selector:
+    matchLabels:
+      app: jenkins-gitops-demo
+  template:
+    metadata:
+      labels:
+        app: jenkins-gitops-demo
+    spec:
+      containers:
+      - name: jenkins-gitops-demo
+        image: vfarcic/jenkins-gitops-demo
+        ports:
+        - containerPort: 80
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 80
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 80
+        resources:
+          limits:
+            cpu: 100m
+            memory: 256Mi
+          requests:
+            cpu: 80m
+            memory: 128Mi
+
