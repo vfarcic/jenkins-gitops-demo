@@ -47,9 +47,12 @@ pipeline {
             git clone https://github.com/$GITOPS_REPO gitops
             cd gitops
             cat production/${PROJECT}.yaml | sed -e "s@${PROJECT}.*@${PROJECT}:${BRANCH_NAME}-${BUILD_NUMBER}@g" | tee production/${PROJECT}.yaml
-            git add .
-            git commit -m "Updating ${PROJECT} to tag ${BRANCH_NAME}-${BUILD_NUMBER}"
-            git push
+            echo "---"
+            cat production/${PROJECT}.yaml
+            git status
+            # git add .
+            # git commit -m "Updating ${PROJECT} to tag ${BRANCH_NAME}-${BUILD_NUMBER}"
+            # git push
           """
         }
       }
