@@ -43,9 +43,7 @@ pipeline {
         // TODO: Switch to Git image
         container("kustomize") {
           sh """
-            pwd
-            ls -l /
-            mkdir gitops
+            cd /tmp
             git clone https://github.com/$GITOPS_REPO gitops
             cd gitops
             cat production/${PROJECT}.yaml | sed -e "s@${PROJECT}.*@${PROJECT}:${BRANCH_NAME}-${BUILD_NUMBER}@g" | tee production/${PROJECT}.yaml
