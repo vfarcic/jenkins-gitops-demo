@@ -1,0 +1,34 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: jenkins
+  namespace: jenkins
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: production
+  source:
+    path: helm
+    repoURL: https://github.com/vfarcic/jenkins-gitops-demo.git
+    targetRevision: HEAD
+    helm:
+      values: |
+        controller:
+          ingress:
+            enabled: true
+            apiVersion: networking.k8s.io/v1
+            hostName: jenkins.18.198.86.174.nip.io
+          installPlugins:
+          - kubernetes:1.29.4
+          - workflow-aggregator:2.6
+          - git:4.7.1
+          - configuration-as-code:1.51
+          - blueocean:1.24.6
+      version: v3
+  destination:
+    namespace: production
+    server: https://kubernetes.default.svc
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true

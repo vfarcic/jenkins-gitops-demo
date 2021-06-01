@@ -12,7 +12,7 @@ spec:
   source:
     repoURL: https://github.com/vfarcic/jenkins-gitops-demo.git
     targetRevision: HEAD
-    path: controller
+    path: production
   destination:
     server: https://kubernetes.default.svc
     namespace: production

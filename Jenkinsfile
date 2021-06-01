@@ -31,7 +31,7 @@ pipeline {
             kustomize build . | kubectl apply --filename -
             kubectl --namespace $PROJECT-${env.BRANCH_NAME.toLowerCase()} rollout status deployment jenkins-demo
           """
-          sh "curl http://${env.BRANCH_NAME.toLowerCase()}$PROJECT.acme.com"
+          sh "curl http://${env.BRANCH_NAME.toLowerCase()}$PROJECT.18.198.86.174.nip.io"
           sh "kubectl delete namespace $PROJECT-${env.BRANCH_NAME.toLowerCase()}"
         }
       }
