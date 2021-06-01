@@ -26,7 +26,6 @@ spec:
           - blueocean:1.24.6
       version: v3
   destination:
-    namespace: jenkins
     server: https://kubernetes.default.svc
   syncPolicy:
     automated:
