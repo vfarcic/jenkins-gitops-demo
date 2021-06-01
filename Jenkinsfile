@@ -49,6 +49,7 @@ pipeline {
             pwd
             ls -l
             ls -l production
+            whoami
             cat production/${PROJECT}.yaml
             cat production/${PROJECT}.yaml | sed -e "s@${PROJECT}.*@${PROJECT}:3.2.1@g" | production/${PROJECT}.yaml
             cat production/${PROJECT}.yaml
