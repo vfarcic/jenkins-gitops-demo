@@ -44,7 +44,7 @@ pipeline {
         container("kustomize") {
           sh """
             mkdir gitops
-            git clone $GITOPS_REPO gitops
+            git clone https://github.com/$GITOPS_REPO gitops
           """
         }
       }
