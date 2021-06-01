@@ -9,7 +9,7 @@ spec:
   project: production
   source:
     path: charts/jenkins
-    repoURL: https://github.com/jenkinsci/helm-charts.git
+    repoURL: https://github.com/jenkinsci/helm-charts
     targetRevision: HEAD
     helm:
       values: |
