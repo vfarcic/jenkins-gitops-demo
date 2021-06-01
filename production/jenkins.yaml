@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: jenkins
-  namespace: jenkins
+  namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
@@ -26,6 +26,7 @@ spec:
           - blueocean:1.24.6
       version: v3
   destination:
+    namespace: jenkins
     server: https://kubernetes.default.svc
   syncPolicy:
     automated:
