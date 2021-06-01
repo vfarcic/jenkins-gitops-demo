@@ -46,7 +46,9 @@ pipeline {
             mkdir gitops
             git clone https://github.com/$GITOPS_REPO gitops
             cd gitops
-
+            cat production/${PROJECT}.yaml
+            cat production/${PROJECT}.yaml | sed -e "s@${PROJECT}.*@${PROJECT}:3.2.1@g" | production/${PROJECT}.yaml
+            cat production/${PROJECT}.yaml
           """
         }
       }
