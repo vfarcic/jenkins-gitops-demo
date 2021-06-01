@@ -12,6 +12,7 @@ spec:
     repoURL: https://github.com/vfarcic/jenkins-gitops-demo
     targetRevision: HEAD
   destination:
+    namespace: production
     server: https://kubernetes.default.svc
   syncPolicy:
     automated:
